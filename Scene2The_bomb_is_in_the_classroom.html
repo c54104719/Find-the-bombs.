@@ -26,5 +26,33 @@
     <p><strong>密文：</strong> 08632</p>
     <p>(請將剛才的程式碼略做修改)</p>
     <p>請將正確答案輸入在網址的後面</p>
+    <p>可以參考以下程式碼</p>
+    <p style="color: #f0f0f0;">def caesar_decrypt_numeric(ciphertext, shift):<br />
+    # 建立數字對應表<br />
+    numeric_alphabet = "0123456789"<br />
+    shifted_numeric_alphabet = numeric_alphabet[shift:] + numeric_alphabet[:shift]<br />
+
+    # 建立字符映射表（解密）<br />
+    char_map = {}<br />
+    for i in range(len(shifted_numeric_alphabet)):<br />
+        char_map[shifted_numeric_alphabet[i]] = numeric_alphabet[i]<br />
+
+    decrypted_text = ""<br />
+    for char in ciphertext:<br />
+        if char.isdigit():<br />
+            # 查詢字符的解密對應<br />
+            decrypted_char = char_map.get(char, char)<br />
+            decrypted_text += decrypted_char<br />
+        else:<br />
+            decrypted_text += char<br />
+
+    return decrypted_text<br />
+
+'''<br />
+ciphertext = ""<br />
+shift = <br />
+decrypted_text = caesar_decrypt_numeric(ciphertext, shift)<br />
+print("解密後的文本:", decrypted_text)<br />
+'''<br />
 </body>
 </html>
