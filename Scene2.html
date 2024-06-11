@@ -25,36 +25,33 @@
     <p>以下是在監聽邪惡組織的電報時蒐集來的資訊，希望你可以將其解碼，找到炸彈地點的相關資訊：</p>
     <p><strong>密文：</strong> Wkh_erpe_lv_lq_fodvvurrp</p>
     <p>請將正確答案輸入在網址的後面</p>
-    <p>可以參考以下文字</p>
-    <p style="color: #f0f0f0;">def caesar_decrypt_dict(ciphertext, shift):
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
-    shifted_alphabet = alphabet[shift:] + alphabet[:shift] #shift是偏移
+    <p>程式碼在下面，反白來選取</p>
+    <p style="color: #f0f0f0;">def caesar_decrypt_dict(ciphertext, shift):<br />
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" <br />
+    shifted_alphabet = alphabet[shift:] + alphabet[:shift] #shift是偏移<br />
+    #建立字符映射表（解密映射）<br />
+    char_map = {}<br />
+    for i in range(len(shifted_alphabet)):<br />
+        char_map[shifted_alphabet[i]] = alphabet[i]<br />
+    decrypted_text = ""<br />
+    for char in ciphertext:<br />
+        if char.isalpha():<br />
+            decrypted_char = char_map.get(char.upper(), char)<br />
+            decrypted_text += decrypted_char if char.isupper() else decrypted_char.lower()<br />
+        else:<br />
+            decrypted_text += char<br />
 
-    #建立字符映射表（解密映射）
-    char_map = {}
-    for i in range(len(shifted_alphabet)):
-        char_map[shifted_alphabet[i]] = alphabet[i]
+    return decrypted_text<br />
 
-
-    decrypted_text = ""
-    for char in ciphertext:
-        if char.isalpha():
-            decrypted_char = char_map.get(char.upper(), char)
-            decrypted_text += decrypted_char if char.isupper() else decrypted_char.lower()
-        else:
-            decrypted_text += char
-
-    return decrypted_text
-
-# 如果只要確認一個
-'''
-ciphertext = "Wkh erpe lv lq fodvvurrp"
-decrypted_text = caesar_decrypt_dict(ciphertext,3)
-print(decrypted_text)'''
-# 如果要分析全部
-'''for i in range (26):
-    decrypted_text = caesar_decrypt_dict(ciphertext, i)
-    print(f"Shift {i}: {decrypted_text}")'''
+# 如果只要確認一個<br />
+'''<br />
+ciphertext = "Wkh erpe lv lq fodvvurrp"<br />
+decrypted_text = caesar_decrypt_dict(ciphertext,3)<br />
+print(decrypted_text)'''<br />
+# 如果要分析全部<br />
+'''for i in range (26):<br />
+    decrypted_text = caesar_decrypt_dict(ciphertext, i)<br />
+    print(f"Shift {i}: {decrypted_text}")'''<br />
 
 </p>
 </body>
